@@ -5,7 +5,7 @@ import operator
 import os,random,math
 import re
 
-parentdir = "drive/My Drive/ML/text-data/sentence-completion"
+parentdir = "drive/My Drive/ML/text-data/sentence-completion"  #used GOOGLE COLAB
 TRAINING_DIR= parentdir + "/Holmes_Training_Data"
 
 def get_training_testing(training_dir=TRAINING_DIR,split=0.5):
@@ -30,8 +30,6 @@ class language_model():
         self.bigram={}
         self.trigram = {}   
 
-    #My code 
-
     def display_bigram(self):
         return self.bigram
     def display_unigram(self):
@@ -40,14 +38,12 @@ class language_model():
         return self.trigram
 
 
-        
-    
     def _processline(self,line):
 
         tokens=["__START"]+tokenize(line)+["__END"]
         previous="__END"
 
-        for count,token in enumerate(tokens):
+        for count, token in enumerate(tokens):
 
             #processing unigram
             self.unigram[token]=self.unigram.get(token,0)+1
